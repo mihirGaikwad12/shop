@@ -1,88 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperKicks - Premium Footwear</title>
+    <title>ElectroParts - Electronic Components Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        .scroll-to-top.active {
-            opacity: 1;
-        }
-        .loading-spinner {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(0,0,0,0.1);
-            border-radius: 50%;
-            border-top-color: #3498db;
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 hidden">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <p class="mb-4 md:mb-0">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
-            <div class="flex space-x-4">
-                <button id="cookieAccept" class="btn btn-primary">Accept</button>
-                <button id="cookieDecline" class="btn btn-ghost">Decline</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
-                    <i class="fas fa-shoe-prints text-2xl text-primary"></i>
-                    <a href="#" class="text-2xl font-bold text-gray-800">SuperKicks</a>
+                    <i class="fas fa-microchip text-2xl text-blue-600"></i>
+                    <a href="#" class="text-2xl font-bold text-gray-800">ElectroParts</a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-gray-800 hover:text-primary">Home</a>
-                    <a href="#products" class="text-gray-800 hover:text-primary">Products</a>
-                    <a href="#about" class="text-gray-800 hover:text-primary">About</a>
-                    <a href="#contact" class="text-gray-800 hover:text-primary">Contact</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-gray-800 hover:text-blue-600">Home</a>
+                    <a href="#products" class="text-gray-800 hover:text-blue-600">Products</a>
+                    <a href="#about" class="text-gray-800 hover:text-blue-600">About</a>
+                    <a href="#contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                    <a href="#shop" class="btn btn-primary btn-sm">
+                        <i class="fas fa-store mr-1"></i> Shop Now
+                    </a>
                     <div class="relative">
                         <button id="cartBtn" class="btn btn-ghost">
                             <i class="fas fa-shopping-cart text-xl"></i>
                             <span id="cartCount" class="badge badge-primary absolute -top-2 -right-2">0</span>
                         </button>
                     </div>
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost">
-                            <i class="fas fa-user text-xl"></i>
-                        </label>
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Orders</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                    <button id="themeToggle" class="btn btn-ghost">
-                        <i class="fas fa-moon"></i>
-                    </button>
                 </div>
 
                 <!-- Mobile Navigation Button -->
@@ -99,43 +55,31 @@
 
             <!-- Mobile Navigation Menu -->
             <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <a href="#" class="block py-2 text-gray-800 hover:text-primary">Home</a>
-                <a href="#products" class="block py-2 text-gray-800 hover:text-primary">Products</a>
-                <a href="#about" class="block py-2 text-gray-800 hover:text-primary">About</a>
-                <a href="#contact" class="block py-2 text-gray-800 hover:text-primary">Contact</a>
-                <div class="flex justify-between items-center mt-4">
-                    <button id="themeToggleMobile" class="btn btn-ghost">
-                        <i class="fas fa-moon"></i> Toggle Theme
-                    </button>
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost">
-                            <i class="fas fa-user text-xl"></i> Account
-                        </label>
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Orders</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <a href="#" class="block py-2 text-gray-800 hover:text-blue-600">Home</a>
+                <a href="#products" class="block py-2 text-gray-800 hover:text-blue-600">Products</a>
+                <a href="#about" class="block py-2 text-gray-800 hover:text-blue-600">About</a>
+                <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-600">Contact</a>
+                <a href="#shop" class="btn btn-primary btn-sm block w-full mt-2">
+                    <i class="fas fa-store mr-1"></i> Shop Now
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+    <section class="hero bg-gradient-to-r from-blue-500 to-blue-700 text-white py-16">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Step Up Your Style</h1>
-                <p class="text-xl mb-6">Discover the latest collection of premium footwear at SuperKicks. Comfort meets style in every step.</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Build. Create. Innovate.</h1>
+                <p class="text-xl mb-6">Your one-stop shop for all electronic components at competitive Indian prices.</p>
                 <div class="flex space-x-4">
-                    <a href="#products" class="btn btn-primary">Shop Now</a>
+                    <a href="#products" class="btn btn-primary">Shop Components</a>
                     <a href="#about" class="btn btn-outline btn-white">Learn More</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="https://images.unsplash.com/photo-1600269452121-1f5d1415f5b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                     alt="Premium sneakers" 
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     alt="Electronic components" 
                      class="rounded-lg shadow-2xl max-w-full h-auto max-h-96 object-cover">
             </div>
         </div>
@@ -146,11 +90,43 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Featured Brands</h2>
             <div class="flex flex-wrap justify-center items-center gap-8">
-                <img src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png" alt="Nike" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo.png" alt="Adidas" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://logos-world.net/wp-content/uploads/2020/04/Puma-Logo.png" alt="Puma" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://logos-world.net/wp-content/uploads/2020/04/New-Balance-Logo.png" alt="New Balance" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://logos-world.net/wp-content/uploads/2020/04/Reebok-Logo.png" alt="Reebok" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
+                <!-- Samsung -->
+<img 
+  src="//logotyp.us/file/samsung.svg" 
+  alt="Samsung" 
+  class="h-24 opacity-70 hover:opacity-100 transition-opacity"
+/>
+
+
+<!-- Intel -->
+<img 
+  src="//logotyp.us/file/intel.svg" 
+  alt="Intel" 
+  class="h-24 opacity-70 hover:opacity-100 transition-opacity"
+/>
+
+
+<!-- AMD -->
+<img 
+  src="//logotyp.us/file/amd.svg" 
+  alt="AMD" 
+  class="h-24 opacity-70 hover:opacity-100 transition-opacity"
+/>
+
+
+<!-- Arduino -->
+<img 
+  src="//logotyp.us/file/arduino.svg" 
+  alt="Arduino" 
+  class="h-24 opacity-70 hover:opacity-100 transition-opacity"
+/>
+
+                <img src="//logotyp.us/file/rasberry-pi.svg" 
+  alt="Raspberry Pi" 
+  class="h-24 opacity-70 hover:opacity-100 transition-opacity"
+/>
+
+
             </div>
         </div>
     </section>
@@ -158,238 +134,88 @@
     <!-- Products Section -->
     <section id="products" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Collection</h2>
-            
-            <!-- Filters -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 bg-white p-4 rounded-lg shadow">
-                <div class="mb-4 md:mb-0">
-                    <span class="font-medium mr-2">Filter:</span>
-                    <select id="categoryFilter" class="select select-bordered w-full md:w-auto">
-                        <option value="all">All Categories</option>
-                        <option value="running">Running</option>
-                        <option value="basketball">Basketball</option>
-                        <option value="casual">Casual</option>
-                        <option value="lifestyle">Lifestyle</option>
-                    </select>
-                </div>
-                <div>
-                    <span class="font-medium mr-2">Sort by:</span>
-                    <select id="sortBy" class="select select-bordered w-full md:w-auto">
-                        <option value="featured">Featured</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="newest">Newest</option>
-                    </select>
-                </div>
-            </div>
+            <h2 class="text-3xl font-bold text-center mb-12">Our Components</h2>
             
             <!-- Products Grid -->
             <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Products will be loaded here by JavaScript -->
             </div>
-            
-            <!-- Loading Spinner -->
-            <div id="loadingSpinner" class="flex justify-center mt-8 hidden">
-                <div class="loading-spinner"></div>
-            </div>
-            
-            <!-- Load More Button -->
-            <div class="text-center mt-12">
-                <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
-            
-            <div class="carousel w-full">
-                <div id="testimonial1" class="carousel-item relative w-full">
-                    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                        <div class="avatar mb-6">
-                            <div class="w-24 rounded-full">
-                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" />
-                            </div>
-                        </div>
-                        <p class="text-lg mb-4">"I've bought several pairs from SuperKicks and they never disappoint. The quality is outstanding and the customer service is top-notch!"</p>
-                        <h4 class="font-bold text-xl">Sarah Johnson</h4>
-                        <p class="text-gray-500">Frequent Customer</p>
-                        <div class="rating rating-md mt-2">
-                            <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
-                        </div>
-                    </div>
-                </div> 
-                <div id="testimonial2" class="carousel-item relative w-full">
-                    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                        <div class="avatar mb-6">
-                            <div class="w-24 rounded-full">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" />
-                            </div>
-                        </div>
-                        <p class="text-lg mb-4">"The selection at SuperKicks is incredible. I found limited edition sneakers here that I couldn't find anywhere else. Highly recommended!"</p>
-                        <h4 class="font-bold text-xl">Michael Chen</h4>
-                        <p class="text-gray-500">Sneaker Enthusiast</p>
-                        <div class="rating rating-md mt-2">
-                            <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
-                        </div>
-                    </div>
-                </div> 
-                <div id="testimonial3" class="carousel-item relative w-full">
-                    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                        <div class="avatar mb-6">
-                            <div class="w-24 rounded-full">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez" />
-                            </div>
-                        </div>
-                        <p class="text-lg mb-4">"SuperKicks has the most comfortable running shoes I've ever worn. Plus, their fast shipping means I can get back to my training without delay."</p>
-                        <h4 class="font-bold text-xl">Emma Rodriguez</h4>
-                        <p class="text-gray-500">Marathon Runner</p>
-                        <div class="rating rating-md mt-2">
-                            <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" checked />
-                            <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" checked />
-                        </div>
-                    </div>
-                </div> 
-            </div>
-            
-            <div class="flex justify-center w-full py-2 gap-2 mt-8">
-                <a href="#testimonial1" class="btn btn-xs">1</a> 
-                <a href="#testimonial2" class="btn btn-xs">2</a> 
-                <a href="#testimonial3" class="btn btn-xs">3</a>
-            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="About SuperKicks" 
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="About ElectroParts" 
                          class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <h2 class="text-3xl font-bold mb-6">Our Story</h2>
-                    <p class="mb-4">Founded in 2015, SuperKicks began as a small sneaker store with a big dream - to bring the best footwear to enthusiasts and casual wearers alike.</p>
-                    <p class="mb-4">Today, we've grown into one of the most trusted names in premium footwear, offering a curated selection of the latest styles from top brands around the world.</p>
-                    <p class="mb-6">Our mission is simple: provide exceptional quality, unbeatable comfort, and styles that help you express your unique personality with every step.</p>
-                    <div class="stats shadow">
-                        <div class="stat">
-                            <div class="stat-title">Happy Customers</div>
-                            <div class="stat-value">10,000+</div>
-                            <div class="stat-desc">Since 2015</div>
+                    <p class="mb-4">Founded in 2021, ElectroParts began as a small electronics shop in Palghar with a passion for helping makers and engineers bring their ideas to life.</p>
+                    <p class="mb-4">Today, we've grown into one of India's most trusted suppliers of electronic components, offering a wide selection at competitive prices.</p>
+                    <p class="mb-6">Our mission is simple: provide high-quality components with fast shipping across India to support your projects and innovations.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-blue-600">10,000+</h3>
+                            <p class="text-gray-600">Happy Customers</p>
                         </div>
-                        <div class="stat">
-                            <div class="stat-title">Brands Available</div>
-                            <div class="stat-value">25+</div>
-                            <div class="stat-desc">And counting</div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-blue-600">5,000+</h3>
+                            <p class="text-gray-600">Components Available</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p class="mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for the latest drops, exclusive deals, and style tips straight to your inbox.</p>
-            <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto">
-                <input type="email" placeholder="Your email address" class="input input-bordered w-full mb-2 sm:mb-0 sm:mr-2 text-gray-800">
-                <button class="btn btn-secondary">Subscribe</button>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <h3 class="text-xl font-semibold mb-4">Our Information</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-primary"></i>
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-600"></i>
                             <div>
                                 <h4 class="font-medium">Address</h4>
-                                <p>123 Sneaker Street, Footwear City, FC 12345</p>
+                                <p>123 Electronics Street, Palghar, MH 401404</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-4 text-primary"></i>
+                            <i class="fas fa-phone-alt mt-1 mr-4 text-blue-600"></i>
                             <div>
                                 <h4 class="font-medium">Phone</h4>
-                                <p>(123) 456-7890</p>
+                                <p>+91 78754 00163</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-4 text-primary"></i>
+                            <i class="fas fa-envelope mt-1 mr-4 text-blue-600"></i>
                             <div>
                                 <h4 class="font-medium">Email</h4>
-                                <p>info@superkicks.com</p>
+                                <p>info@electroparts.com</p>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-4 text-primary"></i>
-                            <div>
-                                <h4 class="font-medium">Hours</h4>
-                                <p>Monday - Friday: 9AM - 7PM<br>Saturday - Sunday: 10AM - 6PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="btn btn-circle btn-ghost"><i class="fab fa-facebook-f text-xl"></i></a>
-                            <a href="#" class="btn btn-circle btn-ghost"><i class="fab fa-twitter text-xl"></i></a>
-                            <a href="#" class="btn btn-circle btn-ghost"><i class="fab fa-instagram text-xl"></i></a>
-                            <a href="#" class="btn btn-circle btn-ghost"><i class="fab fa-youtube text-xl"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <h3 class="text-xl font-semibold mb-4">Send Us a Message</h3>
                     <form class="space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:space-x-4">
-                            <div class="w-full sm:w-1/2">
-                                <label class="label">
-                                    <span class="label-text">Name</span>
-                                </label>
-                                <input type="text" placeholder="Your name" class="input input-bordered w-full">
-                            </div>
-                            <div class="w-full sm:w-1/2">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
-                                </label>
-                                <input type="email" placeholder="Your email" class="input input-bordered w-full">
-                            </div>
+                        <div>
+                            <label class="block mb-1">Name</label>
+                            <input type="text" placeholder="Your name" class="input input-bordered w-full">
                         </div>
                         <div>
-                            <label class="label">
-                                <span class="label-text">Subject</span>
-                            </label>
-                            <input type="text" placeholder="Subject" class="input input-bordered w-full">
+                            <label class="block mb-1">Email</label>
+                            <input type="email" placeholder="Your email" class="input input-bordered w-full">
                         </div>
                         <div>
-                            <label class="label">
-                                <span class="label-text">Message</span>
-                            </label>
+                            <label class="block mb-1">Message</label>
                             <textarea class="textarea textarea-bordered w-full h-32" placeholder="Your message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
@@ -402,59 +228,33 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-shoe-prints text-2xl text-primary"></i>
-                        <span class="text-2xl font-bold">SuperKicks</span>
+                        <i class="fas fa-microchip text-2xl text-blue-600"></i>
+                        <span class="text-2xl font-bold">ElectroParts</span>
                     </div>
-                    <p class="mb-4">Your destination for premium footwear and exceptional service.</p>
+                    <p class="mb-4">Your trusted source for electronic components in India.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Payment Methods</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                        <img src="//logotyp.us/file/paytm.svg" alt="Visa" class="h-8">
+                        <img src="//logotyp.us/file/mastercard.svg" alt="Mastercard" class="h-8">
                     </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Men's Shoes</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Women's Shoes</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Kids' Shoes</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">New Arrivals</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Best Sellers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Help</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Track Order</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Returns Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Accessibility</a></li>
-                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 SuperKicks. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="h-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Mastercard" class="h-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196527.png" alt="American Express" class="h-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196608.png" alt="PayPal" class="h-8">
-                </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2023 ElectroParts. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -477,7 +277,7 @@
             <div id="cartSummary" class="mt-8 border-t pt-4 hidden">
                 <div class="flex justify-between mb-2">
                     <span>Subtotal</span>
-                    <span id="cartSubtotal">$0.00</span>
+                    <span id="cartSubtotal">₹0.00</span>
                 </div>
                 <div class="flex justify-between mb-2">
                     <span>Shipping</span>
@@ -485,7 +285,7 @@
                 </div>
                 <div class="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span id="cartTotal">$0.00</span>
+                    <span id="cartTotal">₹0.00</span>
                 </div>
                 <button id="checkoutBtn" class="btn btn-primary w-full mt-6">Checkout</button>
             </div>
@@ -493,127 +293,80 @@
     </div>
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
 
-    <!-- Product Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-box max-w-5xl">
-            <button id="closeModalBtn" class="btn btn-sm btn-circle absolute right-2 top-2">✕</button>
-            <div id="modalContent" class="flex flex-col md:flex-row gap-8">
-                <!-- Product details will be loaded here by JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" class="scroll-to-top btn btn-circle btn-primary">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script>
-        // Products Data
+        // Products Data with Indian pricing
         const products = [
             {
                 id: 1,
-                name: "Nike Air Max 270",
-                price: 150,
-                category: "lifestyle",
-                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The Nike Air Max 270 delivers a comfortable fit and bold style with a large window for maximum visibility of the Air unit.",
-                sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
-                colors: ["Black/White", "White/Red", "Blue/White"],
-                rating: 4.5,
-                reviews: 128,
-                new: true
+                name: "Arduino Uno",
+                price: 450,
+                category: "development",
+                image: "https://i.postimg.cc/D0qmyzMN/arduino-9.avif",
+                description: "The Arduino Uno is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins, 6 analog inputs, a 16 MHz quartz crystal, USB connection, power jack, ICSP header and reset button.",
+                stock: 50
             },
             {
                 id: 2,
-                name: "Adidas Ultraboost 21",
-                price: 180,
-                category: "running",
-                image: "https://images.unsplash.com/photo-1600269452121-1f5d1415f5b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The Adidas Ultraboost 21 features responsive cushioning and a snug fit for runners who demand both comfort and performance.",
-                sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
-                colors: ["Black", "White", "Blue"],
-                rating: 4.7,
-                reviews: 95,
-                new: true
+                name: "Raspberry Pi 4 Model B",
+                price: 4500,
+                category: "development",
+                image: "https://i.postimg.cc/6qp2zZ5N/4295-05.jpg",
+                description: "The Raspberry Pi 4 Model B is the latest version of the popular Raspberry Pi computer. It features a 1.5GHz quad-core 64-bit ARM Cortex-A72 CPU, up to 8GB RAM, dual-band 802.11ac wireless networking, and two USB 3.0 ports.",
+                stock: 25
             },
             {
                 id: 3,
-                name: "Puma RS-X",
-                price: 110,
-                category: "casual",
-                image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The Puma RS-X combines retro style with modern comfort, featuring a chunky silhouette and bold colorways.",
-                sizes: ["US 7", "US 8", "US 9", "US 10", "US 11"],
-                colors: ["Red/White", "Black/Gold", "White/Blue"],
-                rating: 4.3,
-                reviews: 76,
-                new: false
+                name: "ESP32 Development Board",
+                price: 650,
+                category: "development",
+                image: "https://i.postimg.cc/YqSYz5hm/3269-04.jpg",
+                description: "The ESP32 is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth. The ESP32 includes dual-core and a large array of peripherals.",
+                stock: 75
             },
             {
                 id: 4,
-                name: "New Balance 574",
-                price: 85,
-                category: "casual",
-                image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "A classic silhouette with timeless appeal, the New Balance 574 offers comfort and style for everyday wear.",
-                sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
-                colors: ["Grey", "Navy", "Black"],
-                rating: 4.6,
-                reviews: 210,
-                new: false
+                name: "Breadboard ",
+                price: 120,
+                category: "accessories",
+                image: "https://i.postimg.cc/RZzCZ91r/239-03.jpg",
+                description: "This 830-point solderless breadboard is perfect for prototyping circuits. It has 2 power rails on each side and 63 rows of 5 connected terminals each in the middle.",
+                stock: 100
             },
             {
                 id: 5,
-                name: "Nike Air Jordan 1",
-                price: 170,
-                category: "basketball",
-                image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The iconic Air Jordan 1 returns with premium leather and classic color blocking that made it famous.",
-                sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
-                colors: ["Black/Red", "Black/White", "Blue/White"],
-                rating: 4.8,
-                reviews: 342,
-                new: false
+                name: "Jumper Wires (40pcs)",
+                price: 80,
+                category: "accessories",
+                image: "https://i.postimg.cc/mks19nKh/1957-02.jpg",
+                description: "40 pieces of high-quality jumper wires in various lengths and colors. Perfect for breadboard connections and prototyping.",
+                stock: 150
             },
             {
                 id: 6,
-                name: "Adidas NMD R1",
-                price: 130,
-                category: "lifestyle",
-                image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The Adidas NMD R1 combines modern style with Boost cushioning for all-day comfort and a sleek, sock-like fit.",
-                sizes: ["US 7", "US 8", "US 9", "US 10", "US 11"],
-                colors: ["Black", "White", "Grey"],
-                rating: 4.4,
-                reviews: 156,
-                new: false
+                name: "LED Pack (100pcs)",
+                price: 150,
+                category: "components",
+                image: "https://i.postimg.cc/sfbG5Mdb/4203-02.jpg",
+                description: "100 pieces of 5mm LEDs in assorted colors (Red, Green, Blue, Yellow, White). Forward voltage: 2.0-3.6V, forward current: 20mA.",
+                stock: 200
             },
             {
                 id: 7,
-                name: "Reebok Classic Leather",
-                price: 75,
-                category: "casual",
-                image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "The Reebok Classic Leather features a soft leather upper and cushioned midsole for timeless comfort and style.",
-                sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
-                colors: ["White", "Black", "Burgundy"],
-                rating: 4.2,
-                reviews: 89,
-                new: false
+                name: "Resistor Kit (500pcs)",
+                price: 250,
+                category: "components",
+                image: "https://i.postimg.cc/wThMJFks/2784-00.jpg",
+                description: "500 pieces of 1/4W metal film resistors with 1% tolerance. Includes 20 values from 10Ω to 1MΩ.",
+                stock: 120
             },
             {
                 id: 8,
-                name: "Nike React Infinity Run",
-                price: 160,
-                category: "running",
-                image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "Designed to help reduce injury and keep you running, the Nike React Infinity Run features responsive cushioning.",
-                sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
-                colors: ["Black/White", "Blue/White", "Pink/White"],
-                rating: 4.5,
-                reviews: 112,
-                new: true
+                name: "Capacitor Kit (100pcs)",
+                price: 350,
+                category: "components",
+                image: "https://i.postimg.cc/q7tdcvdZ/2195-01.jpg",
+                description: "100 pieces of assorted ceramic and electrolytic capacitors with values ranging from 10pF to 1000μF.",
+                stock: 80
             }
         ];
 
@@ -635,63 +388,31 @@
         const cartSidebar = document.getElementById('cartSidebar');
         const cartOverlay = document.getElementById('cartOverlay');
         const checkoutBtn = document.getElementById('checkoutBtn');
-        const productModal = document.getElementById('productModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const sortBy = document.getElementById('sortBy');
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        const loadingSpinner = document.getElementById('loadingSpinner');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const themeToggle = document.getElementById('themeToggle');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        const cookieConsent = document.getElementById('cookieConsent');
-        const cookieAccept = document.getElementById('cookieAccept');
-        const cookieDecline = document.getElementById('cookieDecline');
 
         // Display products
-        function displayProducts(productsToShow) {
+        function displayProducts() {
             productsGrid.innerHTML = '';
-            productsToShow.forEach(product => {
+            products.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300';
                 productCard.innerHTML = `
                     <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
-                        ${product.new ? '<span class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">NEW</span>' : ''}
-                        <button class="absolute bottom-2 right-2 btn btn-circle btn-primary btn-sm quick-view-btn" data-id="${product.id}">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-1">${product.name}</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="rating rating-xs">
-                                ${Array(5).fill().map((_, i) => 
-                                    `<input type="radio" name="rating-${product.id}" class="mask mask-star-2 ${i < Math.floor(product.rating) ? 'bg-orange-400' : 'bg-gray-300'}" ${i === Math.floor(product.rating) - 1 ? 'checked' : ''} />`
-                                ).join('')}
-                            </div>
-                            <span class="text-sm text-gray-500 ml-1">(${product.reviews})</span>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-lg">₹${product.price}</span>
+                            <span class="text-sm text-gray-500">In stock: ${product.stock}</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-lg">$${product.price}</span>
-                            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="${product.id}">
-                                <i class="fas fa-cart-plus mr-1"></i> Add to Cart
-                            </button>
-                        </div>
+                        <button class="btn btn-primary btn-sm w-full add-to-cart-btn" data-id="${product.id}">
+                            <i class="fas fa-cart-plus mr-1"></i> Add to Cart
+                        </button>
                     </div>
                 `;
                 productsGrid.appendChild(productCard);
-            });
-
-            // Add event listeners to quick view buttons
-            document.querySelectorAll('.quick-view-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.closest('.quick-view-btn').getAttribute('data-id'));
-                    showProductModal(productId);
-                });
             });
 
             // Add event listeners to add to cart buttons
@@ -701,61 +422,6 @@
                     addToCart(productId);
                 });
             });
-        }
-
-        // Show product modal
-        function showProductModal(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            modalContent.innerHTML = `
-                <div class="w-full md:w-1/2">
-                    <img src="${product.image}" alt="${product.name}" class="w-full rounded-lg">
-                </div>
-                <div class="w-full md:w-1/2">
-                    <h2 class="text-2xl font-bold mb-2">${product.name}</h2>
-                    <div class="flex items-center mb-4">
-                        <div class="rating rating-sm">
-                            ${Array(5).fill().map((_, i) => 
-                                `<input type="radio" name="rating-modal-${product.id}" class="mask mask-star-2 ${i < Math.floor(product.rating) ? 'bg-orange-400' : 'bg-gray-300'}" ${i === Math.floor(product.rating) - 1 ? 'checked' : ''} />`
-                            ).join('')}
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">${product.reviews} reviews</span>
-                    </div>
-                    <p class="text-lg font-bold mb-4">$${product.price}</p>
-                    <p class="mb-6">${product.description}</p>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-semibold mb-2">Size</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${product.sizes.map(size => 
-                                `<button class="btn btn-outline btn-sm size-btn">${size}</button>`
-                            ).join('')}
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-semibold mb-2">Color</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${product.colors.map(color => 
-                                `<button class="btn btn-outline btn-sm color-btn">${color}</button>`
-                            ).join('')}
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary w-full add-to-cart-modal-btn" data-id="${product.id}">
-                        <i class="fas fa-cart-plus mr-2"></i> Add to Cart
-                    </button>
-                </div>
-            `;
-
-            // Add event listener to modal add to cart button
-            document.querySelector('.add-to-cart-modal-btn').addEventListener('click', () => {
-                addToCart(productId);
-                productModal.classList.remove('modal-open');
-            });
-
-            productModal.classList.add('modal-open');
         }
 
         // Add to cart
@@ -817,8 +483,8 @@
                         </div>
                         <div class="flex-1">
                             <h4 class="font-medium">${item.name}</h4>
-                            <p class="text-gray-500">$${item.price} x ${item.quantity}</p>
-                            <p class="font-medium">$${(item.price * item.quantity).toFixed(2)}</p>
+                            <p class="text-gray-500">₹${item.price} x ${item.quantity}</p>
+                            <p class="font-medium">₹${(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                         <button class="btn btn-ghost btn-sm remove-from-cart-btn" data-id="${item.id}">
                             <i class="fas fa-times"></i>
@@ -838,22 +504,16 @@
                 });
                 
                 // Update totals
-                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-                cartTotal.textContent = `$${subtotal.toFixed(2)}`;
+                cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+                cartTotal.textContent = `₹${subtotal.toFixed(2)}`;
             }
         }
 
         // Show notification
         function showNotification(message) {
             const notification = document.createElement('div');
-            notification.className = 'toast toast-top toast-end';
-            notification.innerHTML = `
-                <div class="alert alert-success">
-                    <div>
-                        <span>${message}</span>
-                    </div>
-                </div>
-            `;
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg';
+            notification.textContent = message;
             document.body.appendChild(notification);
             
             setTimeout(() => {
@@ -861,57 +521,13 @@
             }, 3000);
         }
 
-        // Filter and sort products
-        function filterAndSortProducts() {
-            const category = categoryFilter.value;
-            const sort = sortBy.value;
-            
-            let filteredProducts = [...products];
-            
-            // Filter by category
-            if (category !== 'all') {
-                filteredProducts = filteredProducts.filter(product => product.category === category);
-            }
-            
-            // Sort products
-            switch (sort) {
-                case 'price-low':
-                    filteredProducts.sort((a, b) => a.price - b.price);
-                    break;
-                case 'price-high':
-                    filteredProducts.sort((a, b) => b.price - a.price);
-                    break;
-                case 'newest':
-                    filteredProducts.sort((a, b) => (b.new || false) - (a.new || false));
-                    break;
-                default:
-                    // Featured (default) - could implement some featured logic
-                    break;
-            }
-            
-            return filteredProducts;
-        }
-
         // Initialize
         function init() {
-            // Display initial products
-            displayProducts(filterAndSortProducts());
+            // Display products
+            displayProducts();
             
             // Update cart
             updateCart();
-            
-            // Check for cookie consent
-            if (!localStorage.getItem('cookieConsent')) {
-                cookieConsent.classList.remove('hidden');
-            }
-            
-            // Check for saved theme
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                themeToggleMobile.innerHTML = '<i class="fas fa-sun"></i> Toggle Theme';
-            }
         }
 
         // Event Listeners
@@ -939,85 +555,8 @@
             alert('Checkout functionality would be implemented here in a real application.');
         });
 
-        closeModalBtn.addEventListener('click', () => {
-            productModal.classList.remove('modal-open');
-        });
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('active');
-            } else {
-                scrollToTopBtn.classList.remove('active');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        categoryFilter.addEventListener('change', () => {
-            displayProducts(filterAndSortProducts());
-        });
-
-        sortBy.addEventListener('change', () => {
-            displayProducts(filterAndSortProducts());
-        });
-
-        loadMoreBtn.addEventListener('click', () => {
-            loadingSpinner.classList.remove('hidden');
-            loadMoreBtn.disabled = true;
-            
-            // Simulate loading more products
-            setTimeout(() => {
-                // In a real app, this would fetch more products from an API
-                loadingSpinner.classList.add('hidden');
-                loadMoreBtn.disabled = false;
-                showNotification('More products loaded!');
-            }, 1500);
-        });
-
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-        });
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            if (newTheme === 'dark') {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        });
-
-        themeToggleMobile.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            if (newTheme === 'dark') {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                themeToggleMobile.innerHTML = '<i class="fas fa-sun"></i> Toggle Theme';
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                themeToggleMobile.innerHTML = '<i class="fas fa-moon"></i> Toggle Theme';
-            }
-        });
-
-        cookieAccept.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieConsent.classList.add('hidden');
-        });
-
-        cookieDecline.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieConsent.classList.add('hidden');
         });
 
         // Initialize the app
